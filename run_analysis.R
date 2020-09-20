@@ -39,3 +39,6 @@ tidy_mean_std$activity <- as.factor(tidy_set$activity)
 tidy_avg <- tidy_mean_std %>%
   group_by(subject, activity) %>%
   summarise_each(funs(mean))
+
+# write the generated data into a txt file
+write.table(tidy_avg, "tidydata.txt", row.name=FALSE)
